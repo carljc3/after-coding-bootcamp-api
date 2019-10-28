@@ -8,8 +8,8 @@ app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+// **API ROUTES HERE** //
 // const db = require("./models")
-
 // require("./routes").apiRoutes(app)
 
 app.listen(PORT, function(){
