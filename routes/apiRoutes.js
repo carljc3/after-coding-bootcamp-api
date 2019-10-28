@@ -1,3 +1,4 @@
+/**API AND DB ROUTES ONLY, WEB ROUTES ON OTHER REPO**/
 const db = require("../models")
 
 module.exports = function (app) {
@@ -10,7 +11,7 @@ module.exports = function (app) {
 // const axios = require("axios");
 // const router = require("express").Router();
 
-// router.get("/__NAMEHERE__", (req, res) => {
+// app.get("/__NAMEHERE__", (req, res) => {
 //   axios
 //     .get("___URL_ROUTE__HERE___", { params: req.query })
 //     .then(({ data: { results } }) => res.json(results))
