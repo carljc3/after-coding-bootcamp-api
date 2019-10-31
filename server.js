@@ -1,5 +1,5 @@
-var express = require("express");
-var logger = require("morgan");
+const express = require("express");
+const logger = require("morgan");
 // var mongoose = require("mongoose");
 const axios = require("axios");
 const cors = require("cors")
@@ -8,7 +8,7 @@ require("dotenv").config();
 const PORT = process.env.PORT || 3030
 
 // Initialize Express
-var app = express();
+const app = express();
 
 app.use(cors())
 
