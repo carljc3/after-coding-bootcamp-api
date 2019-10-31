@@ -23,6 +23,15 @@ https://www.googleapis.com/youtube/v3/search?key=AIzaSyDi436SOwga8iFLuNLqZ66aXOG
 // });
 /******************************* */
 
+app.get("/api/jobPostings", (req, res)=>{
+    axios
+    .get("https://authenticjobs.com/api/?api_key=" + process.env.AUTHENTIC_JOBS + "&method=aj.jobs.search&keywords=php,mysql&format=json")
+    .then(response =>{
+        console.log(response.data)
+        res.send(response.data);
+    });
+});
+
 app.get("/YoutubeVideos", (req, res) => {
     axios
     .get("https://www.googleapis.com/youtube/v3/search", 
