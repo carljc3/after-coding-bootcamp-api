@@ -1,7 +1,6 @@
 const express = require("express");
 const logger = require("morgan");
 // var mongoose = require("mongoose");
-const axios = require("axios");
 const cors = require("cors")
 require("dotenv").config();
 
