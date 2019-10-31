@@ -9,7 +9,7 @@ module.exports = function (app) {
     })
 }
 
-https://www.googleapis.com/youtube/v3/search?key=AIzaSyDi436SOwga8iFLuNLqZ66aXOGsDMjiVLw&part=snippet&q=coding bootcamp
+https://www.googleapis.com/youtube/v3/search?key=AIzaSyDi436SOwga8iFLuNLqZ66aXOGsDMjiVLw&part=snippet&q=codingbootcamp
 
 // /**API ROUTES TEMPLATE**/
 // const axios = require("axios");
