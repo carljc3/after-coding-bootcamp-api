@@ -1,4 +1,6 @@
 /**API AND DB ROUTES ONLY, WEB ROUTES ON OTHER REPO**/
+require('dotenv').config()
+
 const db = require("../models")
 
 module.exports = function (app) {
@@ -6,6 +8,8 @@ module.exports = function (app) {
         res.json("Welcome ACBC!")
     })
 }
+
+https://www.googleapis.com/youtube/v3/search?key=AIzaSyDi436SOwga8iFLuNLqZ66aXOGsDMjiVLw&part=snippet&q=coding bootcamp
 
 // /**API ROUTES TEMPLATE**/
 // const axios = require("axios");
@@ -17,5 +21,15 @@ module.exports = function (app) {
 //     .then(({ data: { results } }) => res.json(results))
 //     .catch(err => res.status(422).json(err));
 // });
+/******************************* */
 
-// module.exports = router;
+app.get("/YoutubeVideos", (req, res) => {
+    axios
+    .get("https://www.googleapis.com/youtube/v3/search", 
+    { params: req.query, part: "snippet", q:"coding bootcamp",  
+    key: process.env.YOUTUBE_SECRET_KEY })
+    .then(({ data: { results } }) => res.json(results))
+    .catch(err => res.status(422).json(err));
+});
+
+module.exports = router;
