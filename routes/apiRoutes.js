@@ -22,18 +22,18 @@ module.exports = function(app) {
       });
   });
 
-  app.get("/api/YouTubeVIDEOS", (req, res) => {
-    axios
-      .get(
-        "https://www.googleapis.com/youtube/v3/search?key=" + process.env.YOUTUBE_SECRET_KEY + "&part=snippet&q=coding+bootcamp+grads"
-      )
-      .then(response => {
-        console.log(response.data);
-        res.json(response.data);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(422).json(err);
-      });
-  });
+  // app.get("/api/YouTubeVIDEOS", (req, res) => {
+  //   axios
+  //     .get(
+  //       "https://www.googleapis.com/youtube/v3/search?key=" + process.env.YOUTUBE_SECRET_KEY + "&part=snippet&q=coding+bootcamp+grads"
+  //     )
+  //     .then(response => {
+  //       console.log(response.data);
+  //       res.send(response.data);
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //       res.status(422).json(err);
+  //     });
+  // });
 };
