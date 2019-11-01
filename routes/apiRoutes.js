@@ -22,7 +22,7 @@ module.exports = function(app) {
       });
   });
 
-  app.get("/api/YoutubeVideos", (req, res) => {
+  app.get("/api/YouTubeVIDEOS", (req, res) => {
     axios
       .get(
         "https://www.googleapis.com/youtube/v3/search?key=" + process.env.YOUTUBE_SECRET_KEY + "&part=snippet&q=coding+bootcamp+grads"
