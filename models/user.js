@@ -7,7 +7,7 @@ const UserSchema = new Schema({
     username: { type: String, required: true, index: {unique: true}},
     password: { type: String, required: true },
     bootcamp: { type: String, required: false },
-    rating: { integer: Variable, required: false },
+    rating: { type: Number, required: false },
     review: String, 
 });
 

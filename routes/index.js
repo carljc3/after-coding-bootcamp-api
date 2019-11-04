@@ -1,4 +1,4 @@
 module.exports = {
-    apiRoutes: require("./apiRoutes")
-    // authRoutes: require("./authRoutes")
+    apiRoutes: require("./apiRoutes"),
+    authRoutes: require("./authRoutes")
 }
