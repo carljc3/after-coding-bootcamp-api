@@ -11,22 +11,17 @@ mongoose.connect(
 ) .then(data=>console.log("connection to DB sucessful!"))
   .catch(err=>console.log("ERROR DB",err))
 
-const userDATA = [
-  {
-    Bootcamp: string,
-    Review: string,
-    Rating: number,
-    FavoriteArticle: "[]",
-    FavoriteVideo: "[]",
-    SavedJobs:"NULL",
-  },
-];
+const userDATA = {
+    username: "J-Anne",
+    password: "password",
 
-db.userDATA
+}
+
+db.User
   .remove({})
-  .then(() => db.USERID_DB.collection.insert(userDATA))
+  .then(() => db.User.create(userDATA))
   .then(data => {
-    console.log(data.result.n + " records inserted!");
+    console.log(data.result + " records inserted!");
     process.exit(0);
   })
   .catch(err => {
