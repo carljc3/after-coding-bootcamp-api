@@ -28,7 +28,8 @@
     "express-session": "^1.17.0",
     "logger": "0.0.1",
     "mongoose": "^5.7.7",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "react-youtube": "^7.9.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.4"
