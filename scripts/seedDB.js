@@ -33,9 +33,7 @@ const userDATA = {
 
 }
 
-db.User
-  .remove({})
-  .then(() => db.User.create(userDATA))
+db.User.create(userDATA)
   .then(data => {
     console.log(data.result + " records inserted!");
     process.exit(0);
