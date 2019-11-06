@@ -23,11 +23,10 @@ module.exports = function(app) {
       console.log("login");
       console.log(req.body);
       db.User.findOne({
-          where: {
-              username: req.body.username
-          }
+        username: req.body.username
       })
       .then(function (dbUser) {
+          console.log(dbUser)
         if (!dbUser) {
             res.status(500).send("no such user")
         }

@@ -26,6 +26,7 @@ app.use(cors({
 }))
 
 // Connect to the Mongo DB
+
 mongoose.connect("mongodb://localhost/USERID_DB", { useNewUrlParser: true })
 .then(data=>console.log("connection to DB sucessful!"))
   .catch(err=>console.log("ERROR DB",err))
@@ -54,6 +55,7 @@ db.User
     console.error(err);
     process.exit(1);
   });
+
 
 // Static directory
 app.use(session({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true }));
