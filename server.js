@@ -5,6 +5,9 @@ const cors = require("cors")
 const session = require('express-session');
 require("dotenv").config();
 
+// Require all models
+const db = require("./models")
+
 const PORT = process.env.PORT || 3030
 
 // Initialize Express
@@ -23,13 +26,39 @@ app.use(cors({
 }))
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/acbc", { useNewUrlParser: true });
+
+mongoose.connect("mongodb://localhost/USERID_DB", { useNewUrlParser: true })
+.then(data=>console.log("connection to DB sucessful!"))
+  .catch(err=>console.log("ERROR DB",err))
+
+const userDATA = {
+  //DUMMY DATA (DO NOT ERASE)//
+    username: "J-Anne",
+    password: "password",
+    bootcamp: "University of Washington",
+    review: "Overwhelming amount of information.",
+    rating: 4.5,
+    favoriteVideos: [],
+    favoriteArticles: [],
+    savedJobs: [],
+
+}
+
+db.User
+  .remove({})
+  .then(() => db.User.create(userDATA))
+  .then(data => {
+    console.log(data.result + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+
 
 // Static directory
 app.use(session({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true }));
-
-// Require all models
-const db = require("./models")
 
 // **API ROUTES HERE** //
 require("./routes").apiRoutes(app);

@@ -6,14 +6,21 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/reactUSERID_DB"
+  "mongodb://localhost/USERID_DB"
 
 ) .then(data=>console.log("connection to DB sucessful!"))
   .catch(err=>console.log("ERROR DB",err))
 
 const userDATA = {
+  //DUMMY DATA (DO NOT ERASE)//
     username: "J-Anne",
     password: "password",
+    bootcamp: "University of Washington",
+    review: "Overwhelming amount of information.",
+    rating: 4.5,
+    favoriteVideos: [],
+    favoriteArticles: [],
+    savedJobs: [],
 
 }
 
