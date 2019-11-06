@@ -9,6 +9,9 @@ const UserSchema = new Schema({
     bootcamp: { type: String, required: false },
     rating: { type: Number, required: false },
     review: String, 
+    favoriteVideos: { type: Array, required: false },
+    favoriteArticles: { type: Array, required: false },
+    savedJobs: { type: Array, required: false },
 });
 
 UserSchema.pre('save', function(next) {
