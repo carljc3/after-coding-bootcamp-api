@@ -44,17 +44,15 @@ const userDATA = {
 
 }
 
-db.User
-  .remove({})
-  .then(() => db.User.create(userDATA))
-  .then(data => {
-    console.log(data.result + " records inserted!");
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
+// db.User.create(userDATA)
+//   .then(data => {
+//     console.log(data.result + " records inserted!");
+//     process.exit(0);
+//   })
+//   .catch(err => {
+//     console.error(err);
+//     process.exit(1);
+//   });
 
 
 // Static directory
