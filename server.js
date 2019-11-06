@@ -23,7 +23,7 @@ app.use(cors({
 }))
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/populate", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/acbc", { useNewUrlParser: true });
 
 // Static directory
 app.use(session({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true }));
