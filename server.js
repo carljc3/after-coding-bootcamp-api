@@ -42,6 +42,15 @@ const userDATA = {
     favoriteArticles: [],
     savedJobs: [],
 
+    username: "Joe",
+    password: "password",
+    bootcamp: "University of Washington",
+    review: "I love teaching students, it is so fun!",
+    rating: 4.9,
+    favoriteVideos: [],
+    favoriteArticles: [],
+    savedJobs: [],
+
 }
 
 // db.User.create(userDATA)
