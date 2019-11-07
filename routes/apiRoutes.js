@@ -1,28 +1,35 @@
 /**API AND DB ROUTES ONLY, WEB ROUTES ON OTHER REPO**/
 const axios = require("axios");
 require("dotenv").config();
+const db = require('../models')
 
-// const db = require("../models")
-
-module.exports = function(app) {
-  app.get("/", function(req, res) {
+module.exports = function (app) {
+  app.get("/", function (req, res) {
     res.json("Welcome ACBC!");
   });
 
-
-app.get("/api/jobPostings", (req, res)=>{
-
+  app.get("/api/jobPostings", (req, res) => {
     axios
       .get(
         "https://authenticjobs.com/api/?api_key=" +
-          process.env.AUTHENTIC_JOBS +
-          "&method=aj.jobs.search&keywords=php,mysql&format=json"
+        process.env.AUTHENTIC_JOBS +
+        "&method=aj.jobs.search&keywords=php,mysql&format=json"
       )
       .then(response => {
         console.log(response.data);
         res.send(response.data);
       });
   });
+
+  app.post('/api/savearticle', (req, res) => {
+    db.User.findOneAndUpdate({
+      _id: req.session.user.id
+    }, {
+      $push: { favoriteArticle: req.body.article }
+    }).then(data => {
+      res.json(data)
+    })
+  })
 
   app.get("/api/YouTubeVIDEOS", (req, res) => {
     axios
