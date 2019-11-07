@@ -9,7 +9,9 @@ module.exports = function(app) {
     res.json("Welcome ACBC!");
   });
 
-  app.get("/api/jobPostings", (req, res) => {
+
+app.get("/api/jobPostings", (req, res)=>{
+
     axios
       .get(
         "https://authenticjobs.com/api/?api_key=" +

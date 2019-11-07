@@ -21,17 +21,40 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
-    origin:["https://carljc3.github.io","http://localhost:3030"],
+    origin:["https://carljc3.github.io","http://localhost:3000"],
     credentials:true
 }))
 
 // Connect to the Mongo DB
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/USERID_DB";
 
-// Set mongoose to leverage built in JavaScript ES6 Promises
-// Connect to the Mongo DB
-mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI);
+mongoose.connect("mongodb://localhost/USERID_DB", { useNewUrlParser: true })
+.then(data=>console.log("connection to DB sucessful!"))
+  .catch(err=>console.log("ERROR DB",err))
+
+const userDATA = {
+  //DUMMY DATA (DO NOT ERASE)//
+    username: "J-Anne",
+    password: "password",
+    bootcamp: "University of Washington",
+    review: "Overwhelming amount of information.",
+    rating: 4.5,
+    favoriteVideos: [],
+    favoriteArticles: [],
+    savedJobs: [],
+
+}
+
+// db.User.create(userDATA)
+//   .then(data => {
+//     console.log(data.result + " records inserted!");
+//     process.exit(0);
+//   })
+//   .catch(err => {
+//     console.error(err);
+//     process.exit(1);
+//   });
+
 
 // Static directory
 app.use(session({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true }));

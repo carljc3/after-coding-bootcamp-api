@@ -9,6 +9,30 @@ module.exports = function(app) {
     res.json("Welcome to ACBC!");
   });
 
+  app.get('/checkloggedinuser',(req,res)=>{
+      if(req.session.user){
+          db.User.findOne({_id:req.session.user.id}).then(dbUser=>{
+              res.status(200).json(dbUser);
+          })
+      }
+      else {
+          console.log(req.session)
+          res.status(401).json("not logged in")
+      }
+  })
+
+  app.get('/savedfavorites',(req,res)=>{
+      if(req.session.user){
+          db.User.findOne({_id:req.session.user.id}).then(dbUser=>{
+              res.status(200).json(dbUser);
+          })
+      }
+      else {
+          console.log(req.session)
+          res.status(401).json("no saved favorites")
+      }
+  })
+
   app.post("/signup", function(req, res) {
       console.log("signup");
       console.log(req.body);
@@ -36,6 +60,7 @@ module.exports = function(app) {
                 //create new session property "user", set equal to logged in user
                 req.session.user = { id: dbUser.id, name: dbUser.name }
                 req.session.error = null;
+                console.log(req.session)
                 res.status(200).json(req.session);
             }
             else {
