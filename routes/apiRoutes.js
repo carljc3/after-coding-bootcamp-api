@@ -23,9 +23,14 @@ module.exports = function (app) {
 
   app.post('/api/savearticle', (req, res) => {
     db.User.findOneAndUpdate({
-      _id: req.session.user.id
+      _id: req.body.user.id,
     }, {
-      $push: { favoriteArticle: req.body.article }
+      $push: {
+        favoriteArticles: {
+          title: req.body.title,
+          link: req.body.link
+        }
+      }
     }).then(data => {
       res.json(data)
     })
