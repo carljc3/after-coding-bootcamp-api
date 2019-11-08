@@ -51,18 +51,3 @@ module.exports = function (app) {
       });
   });
 };
-app.post('/api/favoriteVideos', (req, res) => {
-  db.User.findOneAndUpdate({
-    _id: req.body.user.id,
-  }, {
-    $push: {
-      favoriteVideos: {
-        title: req.body.title,
-        link: req.body.link
-      }
-    }
-
-  }).then(data => {
-    res.json(data)
-  })
-})

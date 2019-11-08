@@ -41,6 +41,23 @@ module.exports = function (app) {
       .get(
         "https://www.googleapis.com/youtube/v3/search?key=" + process.env.YOUTUBE_SECRET_KEY + "&part=snippet&q=coding+bootcamp+grads"
       )
+
+    app.post('/api/favoriteVideos', (req, res) => {
+      db.User.findOneAndUpdate({
+        _id: req.body.user.id,
+      }, {
+        $push: {
+          favoriteArticles: {
+            title: req.body.title,
+            link: req.body.link
+          }
+        }
+
+      }).then(data => {
+        res.json(data)
+      })
+    })
+
       .then(response => {
         console.log(response.data);
         res.send(response.data);
@@ -51,18 +68,3 @@ module.exports = function (app) {
       });
   });
 };
-app.post('/api/favoriteVideos', (req, res) => {
-  db.User.findOneAndUpdate({
-    _id: req.body.user.id,
-  }, {
-    $push: {
-      favoriteVideos: {
-        title: req.body.title,
-        link: req.body.link
-      }
-    }
-
-  }).then(data => {
-    res.json(data)
-  })
-})
