@@ -1,4 +1,4 @@
-// connect=("localhost:3030/USERID_DB")
+connect=("localhost:3030/USERID_DB")
 const mongoose = require("mongoose");
 const db = require("../models");
 
@@ -20,6 +20,7 @@ const userDATA = {
     rating: 4.5,
     favoriteVideos: [],
     favoriteArticles: [],
+    favoriteResumes: [],
     savedJobs: [],
 
     username: "Joe",
@@ -29,6 +30,7 @@ const userDATA = {
     rating: 5.0,
     favoriteVideos: [],
     favoriteArticles: [],
+    favoriteResumes: [],
     savedJobs: [],
 
 }

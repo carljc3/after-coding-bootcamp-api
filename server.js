@@ -26,6 +26,7 @@ app.use(cors({
 }))
 
 // Connect to the Mongo DB
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/USERID_DB";
 
 mongoose.connect("mongodb://localhost/USERID_DB", { useNewUrlParser: true })
 .then(data=>console.log("connection to DB sucessful!"))
