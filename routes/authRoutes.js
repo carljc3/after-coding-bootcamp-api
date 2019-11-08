@@ -21,18 +21,6 @@ module.exports = function(app) {
       }
   })
 
-  app.get('/savedfavorites',(req,res)=>{
-      if(req.session.user){
-          db.User.findOne({_id:req.session.user.id}).then(dbUser=>{
-              res.status(200).json(dbUser);
-          })
-      }
-      else {
-          console.log(req.session)
-          res.status(401).json("no saved favorites")
-      }
-  })
-
   app.post("/signup", function(req, res) {
       console.log("signup");
       console.log(req.body);
@@ -74,6 +62,7 @@ module.exports = function(app) {
 });
   
   app.get("/logout", function (req, res) {
+      
       req.session.destroy(function () {
           res.send('successfully logged out')
       });

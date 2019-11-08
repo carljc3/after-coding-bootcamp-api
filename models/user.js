@@ -11,7 +11,8 @@ const UserSchema = new Schema({
     review: String, 
     favoriteVideos: { type: Array, required: false },
     favoriteArticles: { type: Array, required: false },
-    savedJobs: { type: Array, required: false },
+    favoriteResumes: { type: Array, required: false },
+    savedJobs: { type: Array, required: false }
 });
 
 UserSchema.pre('save', function(next) {

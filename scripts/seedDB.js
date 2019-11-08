@@ -20,6 +20,7 @@ const userDATA = {
     rating: 4.5,
     favoriteVideos: [],
     favoriteArticles: [],
+    favoriteResumes: [],
     savedJobs: [],
 
     username: "Joe",
@@ -29,6 +30,7 @@ const userDATA = {
     rating: 5.0,
     favoriteVideos: [],
     favoriteArticles: [],
+    favoriteResumes: [],
     savedJobs: [],
 
 }
