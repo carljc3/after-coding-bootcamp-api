@@ -21,21 +21,6 @@ module.exports = function (app) {
       });
   });
 
-  app.post('/api/savearticle', (req, res) => {
-    db.User.findOneAndUpdate({
-      _id: req.body.user.id,
-    }, {
-      $push: {
-        favoriteArticles: {
-          title: req.body.title,
-          link: req.body.link
-        }
-      }
-    }).then(data => {
-      res.json(data)
-    })
-  })
-
   app.get("/api/YouTubeVIDEOS", (req, res) => {
     axios
       .get(
@@ -50,4 +35,20 @@ module.exports = function (app) {
         res.status(422).json(err);
       });
   });
+  app.post("/api/portfolio/videos", (req, res) => {
+    db.User.update({
+      _id: req.session.user.id
+    }, {
+      $push: { favoriteVideos: req.body.newVideo }
+    }).then(response => res.json(response))
+  })
+
+  app.post("/api/portfolio/jobs", (req, res) => {
+    console.log(req.body)
+    db.User.update({
+      _id: req.session.user.id
+    }, {
+      $push: { savedJobs: req.body.newJob }
+    }).then(response => res.json(response))
+  })
 };
