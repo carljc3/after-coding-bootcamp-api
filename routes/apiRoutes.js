@@ -2,22 +2,19 @@
 const axios = require("axios");
 const db = require("../models");
 require("dotenv").config();
+const db = require('../models')
 
-// const db = require("../models")
-
-module.exports = function(app) {
-  app.get("/", function(req, res) {
+module.exports = function (app) {
+  app.get("/", function (req, res) {
     res.json("Welcome ACBC!");
   });
 
-
-app.get("/api/jobPostings", (req, res)=>{
-
+  app.get("/api/jobPostings", (req, res) => {
     axios
       .get(
         "https://authenticjobs.com/api/?api_key=" +
-          process.env.AUTHENTIC_JOBS +
-          "&method=aj.jobs.search&keywords=php,mysql&format=json"
+        process.env.AUTHENTIC_JOBS +
+        "&method=aj.jobs.search&keywords=php,mysql&format=json"
       )
       .then(response => {
         console.log(response.data);
@@ -40,6 +37,38 @@ app.get("/api/jobPostings", (req, res)=>{
       });
   });
 
+  app.post("/api/portfolio/videos", (req, res) => {
+    db.User.update({
+      _id: req.session.user.id
+    }, {
+      $push: { favoriteVideos: req.body.newVideo }
+    }).then(response => res.json(response))
+  })
+
+  app.post("/api/portfolio/jobs", (req, res) => {
+    console.log(req.body)
+    db.User.update({
+      _id: req.session.user.id
+    }, {
+      $push: { savedJobs: req.body.newJob }
+    }).then(response => res.json(response))
+  })
+
+  app.post("/api/portfolio/article", (req, res) => {
+    db.User.update({
+      _id: req.session.user.id
+    }, {
+      $push: { favoriteArticles: req.body.newArticle }
+    }).then(response => res.json(response))
+  })
+
+  app.post("/api/portfolio/resume", (req, res) => {
+    console.log(req.body)
+    db.User.update({
+      _id: req.session.user.id
+    }, {
+      $push: { favoriteResumes: req.body.newResume }
+
   app.post("/api/portfolio/article", (req,res)=>{
     db.User.update({
       _id: req.session.user.id
@@ -54,6 +83,7 @@ app.get("/api/jobPostings", (req, res)=>{
       _id: req.session.user.id
     },{
       $push:{favoriteResumes: req.body.newResume}
+      
     }).then(response => res.json(response))
   })
 };

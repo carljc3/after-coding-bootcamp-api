@@ -54,17 +54,6 @@ const userDATA = {
 
 }
 
-// db.User.create(userDATA)
-//   .then(data => {
-//     console.log(data.result + " records inserted!");
-//     process.exit(0);
-//   })
-//   .catch(err => {
-//     console.error(err);
-//     process.exit(1);
-//   });
-
-
 // Static directory
 app.use(session({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true }));
 
