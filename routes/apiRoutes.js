@@ -1,5 +1,6 @@
 /**API AND DB ROUTES ONLY, WEB ROUTES ON OTHER REPO**/
 const axios = require("axios");
+const db = require("../models");
 require("dotenv").config();
 const db = require('../models')
 
@@ -67,6 +68,22 @@ module.exports = function (app) {
       _id: req.session.user.id
     }, {
       $push: { favoriteResumes: req.body.newResume }
+
+  app.post("/api/portfolio/article", (req,res)=>{
+    db.User.update({
+      _id: req.session.user.id
+    },{
+      $push:{favoriteArticles: req.body.newArticle}
+    }).then(response => res.json(response))
+  })
+  
+  app.post("/api/portfolio/resume", (req, res)=>{
+    console.log(req.body)
+    db.User.update({
+      _id: req.session.user.id
+    },{
+      $push:{favoriteResumes: req.body.newResume}
+      
     }).then(response => res.json(response))
   })
 };

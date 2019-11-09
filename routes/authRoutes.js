@@ -66,4 +66,12 @@ module.exports = function (app) {
             res.send('successfully logged out')
         });
     })
+});
+  
+  app.get("/logout", function (req, res) {
+      
+      req.session.destroy(function () {
+          res.send('successfully logged out')
+      });
+  })
 };

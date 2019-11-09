@@ -1,4 +1,4 @@
-// connect=("localhost:3030/USERID_DB")
+connect=("localhost:3030/USERID_DB")
 const mongoose = require("mongoose");
 const db = require("../models");
 
@@ -32,7 +32,6 @@ const userDATA = {
   favoriteArticles: [],
   savedJobs: [],
   favoriteResumes: [],
-
 }
 
 db.User.create(userDATA)
