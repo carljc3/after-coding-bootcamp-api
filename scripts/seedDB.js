@@ -8,28 +8,30 @@ mongoose.connect(
   process.env.MONGODB_URI ||
   "mongodb://localhost/USERID_DB"
 
-) .then(data=>console.log("connection to DB sucessful!"))
-  .catch(err=>console.log("ERROR DB",err))
+).then(data => console.log("connection to DB sucessful!"))
+  .catch(err => console.log("ERROR DB", err))
 
 const userDATA = {
   //DUMMY DATA (DO NOT ERASE)//
-    username: "J-Anne",
-    password: "password",
-    bootcamp: "University of Washington",
-    review: "Overwhelming amount of information.",
-    rating: 4.5,
-    favoriteVideos: [],
-    favoriteArticles: [],
-    savedJobs: [],
+  username: "J-Anne",
+  password: "password",
+  bootcamp: "University of Washington",
+  review: "Overwhelming amount of information.",
+  rating: 4.5,
+  favoriteVideos: [],
+  favoriteArticles: [],
+  savedJobs: [],
+  favoriteResumes: [],
 
-    username: "Joe",
-    password: "password",
-    bootcamp: "University of Washington",
-    review: "I love teaching the students there, it is so fun!",
-    rating: 5.0,
-    favoriteVideos: [],
-    favoriteArticles: [],
-    savedJobs: [],
+  username: "Joe",
+  password: "password",
+  bootcamp: "University of Washington",
+  review: "I love teaching the students there, it is so fun!",
+  rating: 5.0,
+  favoriteVideos: [],
+  favoriteArticles: [],
+  savedJobs: [],
+  favoriteResumes: [],
 
 }
 
