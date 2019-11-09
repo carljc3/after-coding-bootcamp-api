@@ -39,7 +39,9 @@ module.exports = function (app) {
   app.get("/api/YouTubeVIDEOS", (req, res) => {
     axios
       .get(
-        "https://www.googleapis.com/youtube/v3/search?key=" + process.env.YOUTUBE_SECRET_KEY + "&part=snippet&q=coding+bootcamp+grads"
+        "https://www.googleapis.com/youtube/v3/search?key=" +
+        process.env.YOUTUBE_SECRET_KEY +
+        "&part=snippet&q=coding+bootcamp+grads"
       )
       .then(response => {
         console.log(response.data);
@@ -51,18 +53,18 @@ module.exports = function (app) {
       });
   });
 };
-app.post('/api/favoriteVideos', (req, res) => {
-  db.User.findOneAndUpdate({
-    _id: req.body.user.id,
-  }, {
-    $push: {
-      favoriteVideos: {
-        title: req.body.title,
-        link: req.body.link
-      }
-    }
+// app.post('/api/favoriteVideos', (req, res) => {
+//   db.User.findOneAndUpdate({
+//     _id: req.body.user.id,
+//   }, {
+//     $push: {
+//       favoriteVideos: {
+//         title: req.body.title,
+//         link: req.body.link
+//       }
+//     }
 
-  }).then(data => {
-    res.json(data)
-  })
-})
+//   }).then(data => {
+//     res.json(data)
+//   })
+// })
