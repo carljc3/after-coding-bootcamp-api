@@ -1,0 +1,37 @@
+{
+  "name": "after-coding-bootcamp-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carljc3/after-coding-bootcamp-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carljc3/after-coding-bootcamp-api/issues"
+  },
+  "homepage": "https://github.com/carljc3/after-coding-bootcamp-api#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bcrypt": "^3.0.6",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "logger": "0.0.1",
+    "mongoose": "^5.7.7",
+    "morgan": "^1.9.1",
+    "react-youtube": "^7.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
