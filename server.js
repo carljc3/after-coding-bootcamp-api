@@ -21,36 +21,36 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
-    origin:["http://localhost:3000"],
-    credentials:true
+  origin: ["https://acbc.herokuapp.com/"],
+  credentials: true
 }))
 
 // Connect to the Mongo DB
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/USERID_DB";
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
-.then(data=>console.log("connection to DB sucessful!"))
-  .catch(err=>console.log("ERROR DB",err))
+  .then(data => console.log("connection to DB sucessful!"))
+  .catch(err => console.log("ERROR DB", err))
 
 const userDATA = {
   //DUMMY DATA (DO NOT ERASE)//
-    username: "J-Anne",
-    password: "password",
-    bootcamp: "University of Washington",
-    review: "Overwhelming amount of information.",
-    rating: 4.5,
-    favoriteVideos: [],
-    favoriteArticles: [],
-    savedJobs: [],
+  username: "J-Anne",
+  password: "password",
+  bootcamp: "University of Washington",
+  review: "Overwhelming amount of information.",
+  rating: 4.5,
+  favoriteVideos: [],
+  favoriteArticles: [],
+  savedJobs: [],
 
-    username: "Joe",
-    password: "password",
-    bootcamp: "University of Washington",
-    review: "I love teaching students, it is so fun!",
-    rating: 4.9,
-    favoriteVideos: [],
-    favoriteArticles: [],
-    savedJobs: [],
+  username: "Joe",
+  password: "password",
+  bootcamp: "University of Washington",
+  review: "I love teaching students, it is so fun!",
+  rating: 4.9,
+  favoriteVideos: [],
+  favoriteArticles: [],
+  savedJobs: [],
 
 }
 
@@ -62,6 +62,6 @@ require("./routes").apiRoutes(app);
 require("./routes").authRoutes(app);
 
 // Start the server
-app.listen(PORT, function(){
-    console.log("listening on http://localhost:" + PORT)
+app.listen(PORT, function () {
+  console.log("listening on http://localhost:" + PORT)
 });
