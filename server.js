@@ -21,14 +21,14 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
-    origin:["https://carljc3.github.io","http://localhost:3000"],
+    origin:["http://localhost:3000"],
     credentials:true
 }))
 
 // Connect to the Mongo DB
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/USERID_DB";
 
-mongoose.connect("mongodb://localhost/USERID_DB", { useNewUrlParser: true })
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
 .then(data=>console.log("connection to DB sucessful!"))
   .catch(err=>console.log("ERROR DB",err))
 

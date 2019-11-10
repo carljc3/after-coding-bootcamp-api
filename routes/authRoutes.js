@@ -66,7 +66,7 @@ module.exports = function (app) {
             res.send('successfully logged out')
         });
     })
-});
+
   
   app.get("/logout", function (req, res) {
       
