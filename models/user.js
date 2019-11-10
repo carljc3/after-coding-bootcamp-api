@@ -13,9 +13,7 @@ const UserSchema = new Schema({
     favoriteArticles: { type: Array, required: false },
 
     savedJobs: { type: Array, required: false },
-    favoriteResumes: { type: Array, required: false }
     favoriteResumes: { type: Array, required: false },
-    savedJobs: { type: Array, required: false }
 });
 
 UserSchema.pre('save', function (next) {
