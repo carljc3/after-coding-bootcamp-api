@@ -21,7 +21,7 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
-  origin: ["https://acbc.herokuapp.com/"],
+  origin: "https://acbc.herokuapp.com",
   credentials: true
 }))
 
